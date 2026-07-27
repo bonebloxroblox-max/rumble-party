@@ -3,7 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
     <title>Rumble Party</title>
+    <meta name="title" content="Rumble Party">
+    <meta name="description" content="The Ultimate Showdown! An electrifying 15-player party and minigame collection where you and your crew battle it out for the grand prize!">
+    <meta name="theme-color" content="#d32f2f"> <!-- Changes the little colored bar on the side of Discord embeds to Red -->
+
+    <!-- Open Graph / Facebook / Discord -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rumble.party/">
+    <meta property="og:title" content="Rumble Party">
+    <meta property="og:description" content="The Ultimate Showdown! An electrifying 15-player party and minigame collection where you and your crew battle it out for the grand prize!">
+    <meta property="og:image" content="https://i.imgur.com/nMxrm6X.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://rumble.party/">
+    <meta property="twitter:title" content="Rumble Party">
+    <meta property="twitter:description" content="The Ultimate Showdown! An electrifying 15-player party and minigame collection where you and your crew battle it out for the grand prize!">
+    <meta property="twitter:image" content="https://i.imgur.com/nMxrm6X.png">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://i.imgur.com/NwDKEMF_d.png?maxwidth=520&shape=thumb&fidelity=high">
@@ -108,9 +127,9 @@
         <!-- Logo as a Loading Bar -->
         <div class="relative z-20 w-48 md:w-64 mb-6">
             <!-- Background (darkened/empty) logo -->
-            <img src="https://i.imgur.com/PZ5itSb.png" alt="Rumble Party Logo" class="w-full opacity-20 drop-shadow-lg">
+            <img src="https://i.imgur.com/p3qn0uX.png" alt="Rumble Party Logo" class="w-full opacity-20 drop-shadow-lg">
             <!-- Foreground (filled) logo that reveals from left to right -->
-            <img id="logo-fill" src="https://i.imgur.com/PZ5itSb.png" alt="" class="w-full absolute top-0 left-0 drop-shadow-lg" style="clip-path: inset(0 100% 0 0);">
+            <img id="logo-fill" src="https://i.imgur.com/p3qn0uX.png" alt="" class="w-full absolute top-0 left-0 drop-shadow-lg" style="clip-path: inset(0 100% 0 0);">
         </div>
         <!-- Loading Percentage -->
         <div id="loading-text" class="relative z-20 text-white text-5xl md:text-6xl font-montserrat-black tracking-wider">0%</div>
@@ -125,7 +144,7 @@
         <!-- Fixed Shared Header -->
         <header class="fixed top-0 w-full z-[150] bg-black/40 backdrop-blur-md border-b border-white/10 flex items-center px-6 py-4 md:px-12">
             <!-- Colored Logo -->
-            <img src="https://i.imgur.com/NwDKEMF_d.png?maxwidth=520&shape=thumb&fidelity=high" alt="Rumble Party Logo" class="h-8 md:h-10 mr-12 cursor-pointer" onclick="switchView('home')">
+            <img src="https://i.imgur.com/5c5vgLs.png" alt="Rumble Party Logo" class="h-8 md:h-10 mr-12 cursor-pointer" onclick="switchView('home')">
             
             <!-- Navigation Buttons -->
             <nav class="hidden md:flex gap-8 text-sm uppercase font-bold tracking-wide mt-1">
@@ -172,9 +191,8 @@
                 
                 <!-- Visual decorative element -->
                 <div class="md:w-1/2 flex justify-center w-full mt-8 md:mt-0">
-                    <div class="w-full aspect-video md:aspect-square max-w-md bg-gradient-to-br from-white/10 to-transparent rounded-xl border border-white/10 shadow-2xl flex items-center justify-center p-8 relative overflow-hidden">
-                        <div class="absolute inset-0 bg-[#d32f2f] opacity-20 blur-[100px] rounded-full"></div>
-                        <img src="https://i.imgur.com/PZ5itSb.png" alt="Rumble Party Logo" class="relative z-10 opacity-70 drop-shadow-2xl transform md:-rotate-6 md:scale-110 w-3/4">
+                    <div class="w-full aspect-square max-w-md bg-[#222] border border-white/10 shadow-2xl flex items-center justify-center relative overflow-hidden">
+                        <img src="https://i.imgur.com/r7rePqc.png" alt="Rumble Party Gameplay" class="w-full h-full object-cover">
                     </div>
                 </div>
             </div>
@@ -183,21 +201,21 @@
         <footer class="w-full bg-[#111] py-12 px-6 border-t border-white/10 relative z-10">
             <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
                 <div class="flex flex-col md:flex-row items-center gap-4">
-                    <img src="https://i.imgur.com/NwDKEMF_d.png?maxwidth=520&shape=thumb&fidelity=high" alt="Rumble Party" class="h-6 opacity-50 grayscale">
+                    <img src="https://i.imgur.com/RwPmzER.png" alt="Rumble Party" class="h-6 opacity-50">
                     <span class="text-gray-500 text-sm font-montserrat">© 2026 Toromo Games. All rights reserved.</span>
                 </div>
                 
                 <div class="flex gap-6">
-                    <!-- Discord -->
-                    <a href="https://discord.gg/F7tv9nG6Ux" target="_blank" class="text-gray-400 hover:text-[#5865F2] transition-colors" title="Join our Discord">
-                        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg>
+                    <!-- Roblox -->
+                    <a href="https://www.roblox.com/communities/1021824720/TOROMO#!/about" target="_blank" class="text-gray-400 hover:text-white transition-colors" title="Join our Roblox Community">
+                        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M5.438 3.013l15.549 3.693-3.693 15.549-15.549-3.693 3.693-15.549zm9.055 10.37a2.128 2.128 0 1 0-1.01-4.135 2.128 2.128 0 0 0 1.01 4.135z"/></svg>
                     </a>
                     <!-- Twitter / X -->
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors" title="Follow us on X">
+                    <a href="https://x.com/ToromoGames" target="_blank" class="text-gray-400 hover:text-white transition-colors" title="Follow us on X">
                         <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
                     </a>
                     <!-- YouTube -->
-                    <a href="#" class="text-gray-400 hover:text-[#FF0000] transition-colors" title="Subscribe on YouTube">
+                    <a href="https://www.youtube.com/@TOROMO_GAMES" target="_blank" class="text-gray-400 hover:text-[#FF0000] transition-colors" title="Subscribe on YouTube">
                         <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                     </a>
                 </div>
@@ -426,57 +444,52 @@
         const iconMuted = document.getElementById('icon-muted');
         
         bgMusic.volume = 0.5;
-        let isPlaying = false;
+        let isUserMuted = false;
 
         // Helper to swap icons based on state
         function updateIcons() {
-            if (isPlaying) {
-                iconUnmuted.classList.remove('hidden');
-                iconMuted.classList.add('hidden');
-            } else {
+            if (isUserMuted) {
                 iconUnmuted.classList.add('hidden');
                 iconMuted.classList.remove('hidden');
+            } else {
+                iconUnmuted.classList.remove('hidden');
+                iconMuted.classList.add('hidden');
             }
         }
 
         // Function to attempt playing audio
         function startAudio() {
-            if (isPlaying) return; // If already playing, do nothing
+            if (isUserMuted) return; // NEVER override user's choice to mute
             
             let playPromise = bgMusic.play();
             if (playPromise !== undefined) {
                 playPromise.then(() => {
-                    isPlaying = true;
-                    bgMusic.muted = false;
                     updateIcons();
                 }).catch(err => {
-                    console.log("Audio playback waiting for stronger user interaction.", err);
+                    // Browser requires interaction first, fails silently until next click
                 });
             }
         }
 
-        // Listen for ANY click or keypress on the entire webpage
+        // Attempt autoplay instantly
+        startAudio();
+
+        // Listen for ANY click or keypress to start music (if browser blocked autoplay)
         document.addEventListener('click', startAudio);
         document.addEventListener('keydown', startAudio);
 
-        // Mute button directly controls Play/Pause now
+        // Mute button directly controls Play/Pause state permanently
         muteBtn.addEventListener('click', (e) => {
             e.stopPropagation(); // Prevents the document click from firing at the exact same time
             
-            if (isPlaying) {
+            isUserMuted = !isUserMuted; // Toggle user preference
+            
+            if (isUserMuted) {
                 bgMusic.pause();
-                isPlaying = false;
-                updateIcons();
             } else {
-                let playPromise = bgMusic.play();
-                if (playPromise !== undefined) {
-                    playPromise.then(() => {
-                        isPlaying = true;
-                        bgMusic.muted = false;
-                        updateIcons();
-                    }).catch(err => console.log(err));
-                }
+                bgMusic.play().catch(err => console.log(err));
             }
+            updateIcons();
         });
 
         // View Switching Logic
