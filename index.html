@@ -3,26 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Primary Meta Tags -->
     <title>Rumble Party</title>
-    <meta name="title" content="Rumble Party">
-    <meta name="description" content="You and 8 Friends (Or enemies) fight for the crown and be prized the best! so grab your deck of cards and party!">
-    <meta name="theme-color" content="#d32f2f"> <!-- Changes the little colored bar on the side of Discord embeds to Red -->
-
-    <!-- Open Graph / Facebook / Discord -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://rumble.party/">
+    
+    <!-- Open Graph (OG) Meta Tags for Discord / Twitter / Social Sharing -->
     <meta property="og:title" content="Rumble Party">
-    <meta property="og:description" content="You and 8 Friends (Or enemies) fight for the crown and be prized the best! so grab your deck of cards and party!">
+    <meta property="og:description" content="The Ultimate Showdown! An electrifying 15-player party and minigame collection where you and your crew battle it out for the grand prize!">
     <meta property="og:image" content="https://i.imgur.com/nMxrm6X.png">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://rumble.party/">
-    <meta property="twitter:title" content="Rumble Party">
-    <meta property="twitter:description" content="You and 8 Friends (Or enemies) fight for the crown and be prized the best! so grab your deck of cards and party!">
-    <meta property="twitter:image" content="https://i.imgur.com/nMxrm6X.png">
+    <meta property="og:url" content="https://rumble.party/">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Rumble Party">
+    <meta name="twitter:description" content="The Ultimate Showdown! An electrifying 15-player party and minigame collection where you and your crew battle it out for the grand prize!">
+    <meta name="twitter:image" content="https://i.imgur.com/nMxrm6X.png">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://i.imgur.com/NwDKEMF_d.png?maxwidth=520&shape=thumb&fidelity=high">
@@ -55,7 +49,6 @@
         }
 
         .loading-bg-stripes {
-            /* Creates mathematically perfect 45-degree diagonal stripes */
             background-image: repeating-linear-gradient(
                 45deg,
                 #007aff,
@@ -71,7 +64,6 @@
             animation: scrollStripes 2s linear infinite;
         }
 
-        /* Overlay for the global gradient effect */
         .loading-gradient-overlay {
             background: linear-gradient(135deg, rgba(0, 40, 150, 0.7) 0%, rgba(0, 122, 255, 0) 100%);
             pointer-events: none;
@@ -82,25 +74,23 @@
             100% { background-position: -100px 100px; }
         }
 
-        /* Smooth slide down with a bounce effect */
         @keyframes slideBounceDrop {
             0% {
                 transform: translateY(0);
             }
             70% {
-                transform: translateY(110vh); /* Shoots past the bottom */
+                transform: translateY(110vh);
             }
             85% {
-                transform: translateY(90vh); /* Bounces back up a bit */
+                transform: translateY(90vh);
             }
             100% {
-                transform: translateY(150vh); /* Settles firmly off-screen */
+                transform: translateY(150vh);
                 opacity: 0;
             }
         }
 
         .drop-out {
-            /* Uses ease-in-out for the initial drop, but the keyframes handle the bounce */
             animation: slideBounceDrop 1.5s ease-in-out forwards;
             pointer-events: none;
             z-index: 200; 
@@ -119,37 +109,35 @@
 
     <!-- Loading Screen -->
     <div id="loading-screen" class="fixed inset-0 z-[100] w-full h-screen flex flex-col items-center justify-center overflow-hidden bg-[#0065d6]">
-        <!-- Animated Stripes Background -->
         <div class="absolute inset-0 z-0 loading-bg-stripes w-full h-full"></div>
-        <!-- Static Dark Gradient Overlay -->
         <div class="absolute inset-0 z-10 loading-gradient-overlay w-full h-full"></div>
 
-        <!-- Logo as a Loading Bar -->
         <div class="relative z-20 w-48 md:w-64 mb-6">
-            <!-- Background (darkened/empty) logo -->
-            <img src="https://i.imgur.com/p3qn0uX.png" alt="Rumble Party Logo" class="w-full opacity-20 drop-shadow-lg">
-            <!-- Foreground (filled) logo that reveals from left to right -->
-            <img id="logo-fill" src="https://i.imgur.com/p3qn0uX.png" alt="" class="w-full absolute top-0 left-0 drop-shadow-lg" style="clip-path: inset(0 100% 0 0);">
+            <img src="https://i.imgur.com/SI0DZLE.png" alt="Rumble Party Logo" class="w-full opacity-20 drop-shadow-lg">
+            <img id="logo-fill" src="https://i.imgur.com/SI0DZLE.png" alt="" class="w-full absolute top-0 left-0 drop-shadow-lg" style="clip-path: inset(0 100% 0 0);">
         </div>
-        <!-- Loading Percentage -->
         <div id="loading-text" class="relative z-20 text-white text-5xl md:text-6xl font-montserrat-black tracking-wider">0%</div>
+
+        <!-- Watermark -->
+        <div class="absolute bottom-6 left-6 z-20 flex items-center gap-3 opacity-80">
+            <span class="text-white text-xs md:text-sm font-montserrat tracking-widest uppercase font-bold">Logo made by</span>
+            <img src="https://i.imgur.com/7V48SWz.png" alt="Logo Designer Watermark" class="h-6 md:h-8 object-contain">
+        </div>
     </div>
 
-    <!-- Main Content (Hidden initially by opacity) -->
+    <!-- Main Content -->
     <div id="main-content" class="opacity-0 transition-opacity duration-1000 ease-in-out relative w-full">
         
-        <!-- Background Image (Fixed behind everything) -->
         <div class="fixed inset-0 z-[-1] bg-cover bg-center bg-no-repeat" style="background-image: url('https://i.imgur.com/j961wit.png');"></div>
 
         <!-- Fixed Shared Header -->
         <header class="fixed top-0 w-full z-[150] bg-black/40 backdrop-blur-md border-b border-white/10 flex items-center px-6 py-4 md:px-12">
-            <!-- Colored Logo -->
-            <img src="https://i.imgur.com/5c5vgLs.png" alt="Rumble Party Logo" class="h-8 md:h-10 mr-12 cursor-pointer" onclick="switchView('home')">
+            <img src="https://i.imgur.com/Wtz4rBO.png" alt="Rumble Party Logo" class="h-8 md:h-10 mr-12 cursor-pointer" onclick="switchView('home')">
             
-            <!-- Navigation Buttons -->
             <nav class="hidden md:flex gap-8 text-sm uppercase font-bold tracking-wide mt-1">
                 <a href="#" onclick="switchView('home'); return false;" id="nav-home" class="nav-link text-white border-b-2 border-white pb-1">Home</a>
                 <a href="#" onclick="switchView('characters'); return false;" id="nav-characters" class="nav-link text-gray-300 hover:text-white transition-colors pb-1 border-b-2 border-transparent hover:border-gray-300">Characters</a>
+                <a href="#" onclick="switchView('merch'); return false;" id="nav-merch" class="nav-link text-gray-300 hover:text-white transition-colors pb-1 border-b-2 border-transparent hover:border-gray-300">Merch</a>
                 <a href="#" onclick="switchView('get-involved'); return false;" id="nav-get-involved" class="nav-link text-gray-300 hover:text-white transition-colors pb-1 border-b-2 border-transparent hover:border-gray-300">Get Involved</a>
             </nav>
 
@@ -160,100 +148,123 @@
 
         <!-- PAGE VIEW: HOME -->
         <div id="view-home" class="page-view block w-full">
-            <!-- Hero Section (Takes up full screen height) -->
             <div class="h-screen flex flex-col w-full relative pt-20">
-
-                <!-- Hero Content Area -->
                 <main class="flex-grow flex flex-col items-center justify-end pb-24 px-4 text-center">
-                <a href="https://discord.gg/F7tv9nG6Ux" target="_blank" class="inline-block bg-[#d32f2f] hover:bg-[#b71c1c] text-white font-bold py-4 px-12 rounded-sm shadow-[0_4px_15px_rgba(0,0,0,0.5)] text-lg md:text-xl tracking-wider uppercase transition transform hover:scale-105 mb-8">
-                    Pre-Register
-                </a>
-                
-                <a href="#about" class="animate-bounce text-white/70 cursor-pointer hover:text-white transition inline-block">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
-                </a>
-            </main>
-        </div>
+                    <a href="https://discord.gg/F7tv9nG6Ux" target="_blank" class="inline-block bg-[#d32f2f] hover:bg-[#b71c1c] text-white font-bold py-4 px-12 rounded-sm shadow-[0_4px_15px_rgba(0,0,0,0.5)] text-lg md:text-xl tracking-wider uppercase transition transform hover:scale-105 mb-8">
+                        Pre-Register
+                    </a>
+                    
+                    <a href="#about" class="animate-bounce text-white/70 cursor-pointer hover:text-white transition inline-block">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                    </a>
+                </main>
+            </div>
 
-        <!-- About Section -->
-        <section id="about" class="w-full bg-[#181818] text-white py-24 px-6 md:px-12 relative z-10 border-t border-white/10 shadow-[0_-10px_30px_rgba(0,0,0,0.5)]">
-            <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 items-center">
-                <!-- Text Content -->
-                <div class="md:w-1/2 text-center md:text-left">
-                    <h2 class="text-4xl md:text-6xl font-montserrat-black tracking-wide uppercase mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">The Ultimate Showdown</h2>
-                    <p class="text-lg md:text-xl text-gray-300 leading-relaxed mb-6 font-montserrat">
-                        Rumble Party is an electrifying <span class="text-white font-bold">15-player party and minigame collection</span> where you and your crew battle it out for the grand prize! 
-                    </p>
-                    <p class="text-lg md:text-xl text-gray-300 leading-relaxed font-montserrat">
-                        Dive into a massive collection of chaotic challenges. Whether you crave the adrenaline of high-speed races or prefer outsmarting opponents in interactive puzzle games, there's a game mode for everyone. Grab your friends, step into the arena, and let the rumble begin!
-                    </p>
-                </div>
-                
-                <!-- Visual decorative element -->
-                <div class="md:w-1/2 flex justify-center w-full mt-8 md:mt-0">
-                    <div class="w-full aspect-square max-w-md bg-[#222] border border-white/10 shadow-2xl flex items-center justify-center relative overflow-hidden">
-                        <img src="https://i.imgur.com/r7rePqc.png" alt="Rumble Party Gameplay" class="w-full h-full object-cover">
+            <!-- About Section -->
+            <section id="about" class="w-full bg-[#181818] text-white py-24 px-6 md:px-12 relative z-10 border-t border-white/10 shadow-[0_-10px_30px_rgba(0,0,0,0.5)]">
+                <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 items-center">
+                    <div class="md:w-1/2 text-center md:text-left">
+                        <h2 class="text-4xl md:text-6xl font-montserrat-black tracking-wide uppercase mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">The Ultimate Showdown</h2>
+                        <p class="text-lg md:text-xl text-gray-300 leading-relaxed mb-6 font-montserrat">
+                            Rumble Party is an electrifying <span class="text-white font-bold">15-player party and minigame collection</span> where you and your crew battle it out for the grand prize! 
+                        </p>
+                        <p class="text-lg md:text-xl text-gray-300 leading-relaxed font-montserrat">
+                            Dive into a massive collection of chaotic challenges. Whether you crave the adrenaline of high-speed races or prefer outsmarting opponents in interactive puzzle games, there's a game mode for everyone. Grab your friends, step into the arena, and let the rumble begin!
+                        </p>
+                    </div>
+                    
+                    <div class="md:w-1/2 flex justify-center w-full mt-8 md:mt-0">
+                        <div class="w-full aspect-square max-w-md bg-gradient-to-br from-white/10 to-transparent border border-white/10 shadow-2xl flex items-center justify-center relative overflow-hidden">
+                            <div class="absolute inset-0 bg-[#d32f2f] opacity-20 blur-[100px] rounded-full"></div>
+                            <img src="https://i.imgur.com/r7rePqc.png" alt="Rumble Party Game Preview" class="relative z-10 w-full h-full object-cover">
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <footer class="w-full bg-[#111] py-12 px-6 border-t border-white/10 relative z-10">
-            <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-                <div class="flex flex-col md:flex-row items-center gap-4">
-                    <img src="https://i.imgur.com/RwPmzER.png" alt="Rumble Party" class="h-6 opacity-50">
-                    <span class="text-gray-500 text-sm font-montserrat">© 2026 Toromo Games. All rights reserved.</span>
+            <footer class="w-full bg-[#111] py-12 px-6 border-t border-white/10 relative z-10">
+                <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="flex flex-col md:flex-row items-center gap-4">
+                        <img src="https://i.imgur.com/RwPmzER.png" alt="Rumble Party" class="h-6 opacity-50 grayscale">
+                        <span class="text-gray-500 text-sm font-montserrat flex flex-wrap items-center gap-4">
+                            <span>© 2026 Toromo Games. All rights reserved.</span>
+                            <a href="#" onclick="switchView('privacy'); return false;" class="hover:text-white transition-colors underline decoration-gray-600 hover:decoration-white">privacy & copyright</a>
+                        </span>
+                    </div>
+                    
+                    <div class="flex gap-6">
+                        <!-- Roblox -->
+                        <a href="https://www.roblox.com/communities/1021824720/TOROMO#!/about" target="_blank" class="text-gray-400 hover:text-white transition-colors" title="Join our Roblox Community">
+                            <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24"><path d="M5.158 0 0 18.842 18.842 24 24 5.158 5.158 0ZM13.882 14.864 9.136 13.882 10.118 9.136 14.864 10.118 13.882 14.864Z"/></svg>
+                        </a>
+                        <!-- Twitter / X -->
+                        <a href="https://x.com/ToromoGames" target="_blank" class="text-gray-400 hover:text-white transition-colors" title="Follow us on X">
+                            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+                        </a>
+                        <!-- YouTube -->
+                        <a href="https://www.youtube.com/@TOROMO_GAMES" target="_blank" class="text-gray-400 hover:text-[#FF0000] transition-colors" title="Subscribe on YouTube">
+                            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
                 </div>
-                
-                <div class="flex gap-6">
-                    <!-- Roblox -->
-                    <a href="https://www.roblox.com/communities/1021824720/TOROMO#!/about" target="_blank" class="text-gray-400 hover:text-white transition-colors" title="Join our Roblox Community">
-                        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M5.438 3.013l15.549 3.693-3.693 15.549-15.549-3.693 3.693-15.549zm9.055 10.37a2.128 2.128 0 1 0-1.01-4.135 2.128 2.128 0 0 0 1.01 4.135z"/></svg>
-                    </a>
-                    <!-- Twitter / X -->
-                    <a href="https://x.com/ToromoGames" target="_blank" class="text-gray-400 hover:text-white transition-colors" title="Follow us on X">
-                        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
-                    </a>
-                    <!-- YouTube -->
-                    <a href="https://www.youtube.com/@TOROMO_GAMES" target="_blank" class="text-gray-400 hover:text-[#FF0000] transition-colors" title="Subscribe on YouTube">
-                        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                    </a>
-                </div>
-            </div>
-        </footer>
-
+            </footer>
         </div> <!-- End of View: Home -->
+
+        <!-- PAGE VIEW: CHARACTERS -->
+        <div id="view-characters" class="page-view hidden w-full min-h-screen flex items-center justify-center relative bg-[#111]">
+            <div class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-30 blur-sm" style="background-image: url('https://i.imgur.com/j961wit.png');"></div>
+            <div class="absolute inset-0 z-0 bg-black/60"></div>
+            
+            <div class="relative z-10 text-center px-4 max-w-2xl mx-auto flex flex-col items-center">
+                <svg class="w-16 h-16 md:w-24 md:h-24 text-gray-500 mb-8 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                <h2 class="text-4xl md:text-6xl font-montserrat-black tracking-widest uppercase mb-4 text-transparent bg-clip-text bg-gradient-to-r from-gray-300 to-gray-600 drop-shadow-lg">Coming Soon</h2>
+                <p class="text-gray-400 font-montserrat text-lg md:text-xl tracking-wide max-w-md mx-auto mb-8 border-t border-b border-white/10 py-4">
+                    The roster is currently highly classified. Check back closer to launch to meet the fighters.
+                </p>
+                <a href="https://discord.gg/F7tv9nG6Ux" target="_blank" class="text-[#d32f2f] hover:text-[#b71c1c] font-bold tracking-widest uppercase text-sm transition-colors flex items-center gap-2 group cursor-pointer">
+                    <span>Join Discord for sneak peeks</span>
+                    <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- PAGE VIEW: MERCH -->
+        <div id="view-merch" class="page-view hidden w-full min-h-screen flex items-center justify-center relative bg-[#111]">
+            <div class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-30 blur-sm" style="background-image: url('https://i.imgur.com/j961wit.png');"></div>
+            <div class="absolute inset-0 z-0 bg-black/60"></div>
+            
+            <div class="relative z-10 text-center px-4 max-w-2xl mx-auto flex flex-col items-center">
+                <svg class="w-16 h-16 md:w-24 md:h-24 text-gray-500 mb-8 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                <h2 class="text-4xl md:text-6xl font-montserrat-black tracking-widest uppercase mb-4 text-transparent bg-clip-text bg-gradient-to-r from-gray-300 to-gray-600 drop-shadow-lg">Coming Soon</h2>
+                <p class="text-gray-400 font-montserrat text-lg md:text-xl tracking-wide max-w-md mx-auto mb-8 border-t border-b border-white/10 py-4">
+                    Official gear drops are currently in production. Check back closer to launch to gear up.
+                </p>
+                <a href="https://discord.gg/F7tv9nG6Ux" target="_blank" class="text-[#d32f2f] hover:text-[#b71c1c] font-bold tracking-widest uppercase text-sm transition-colors flex items-center gap-2 group cursor-pointer">
+                    <span>Join Discord for merchandise announcements</span>
+                    <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </a>
+            </div>
+        </div>
 
         <!-- PAGE VIEW: GET INVOLVED -->
         <div id="view-get-involved" class="page-view hidden w-full min-h-screen bg-[#111111] text-white pb-24 relative z-10">
-            
-            <!-- Section Header / Banner (Full Bleed) -->
             <div class="w-full relative h-64 md:h-[32rem] border-b border-white/10">
                 <img src="https://i.imgur.com/h6JB7Ed.png" alt="Toromo Games Banner" class="w-full h-full object-cover">
-                
-                <!-- Overlapping Square Logo (Top Right) -->
-                <!-- Placed far enough down to clear the fixed navigation header -->
                 <div class="absolute top-24 right-6 md:top-28 md:right-12">
                     <img src="https://i.imgur.com/uVoCYN2.png" alt="Toromo Games Logo" class="w-24 h-24 md:w-32 md:h-32 object-contain bg-[#181818] border-4 border-[#111111] shadow-[0_10px_30px_rgba(0,0,0,0.8)]">
                 </div>
             </div>
 
             <div class="max-w-5xl mx-auto flex flex-col items-center px-6 md:px-12 pt-16">
-                
-                <!-- Text Content -->
                 <div class="text-center max-w-3xl px-4 mb-12">
                     <h2 class="text-3xl md:text-5xl font-montserrat-black tracking-wide uppercase mb-8 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Inspire Us</h2>
-                    
                     <p class="text-lg md:text-xl text-gray-300 leading-relaxed font-montserrat italic">
                         "Here at TOROMO games, we are always euphuistic about raising the bar for players AND developers. Most would say, it is a pleasure to work with us, but here, we think it's a pleasure to work with new, and skilled people, every day."
                     </p>
                 </div>
 
-                <!-- Job Openings Section -->
                 <div class="w-full max-w-3xl bg-black border border-white/10 rounded-sm p-6 md:p-8 text-left shadow-2xl relative overflow-hidden">
-                    <!-- Red Accent Line -->
                     <div class="absolute top-0 left-0 w-full h-1 bg-[#d32f2f]"></div>
-                    
                     <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
                         <div>
                             <h3 class="text-2xl md:text-4xl font-montserrat-black uppercase text-white tracking-wide">Content Creator</h3>
@@ -290,75 +301,184 @@
                         </a>
                     </div>
                 </div>
-
             </div>
         </div>
 
-        <!-- PAGE VIEW: CHARACTERS -->
-        <div id="view-characters" class="page-view hidden w-full min-h-screen flex items-center justify-center relative bg-[#111]">
-            <!-- Background Image with heavy blur and dark overlay -->
-            <div class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-30 blur-sm" style="background-image: url('https://i.imgur.com/j961wit.png');"></div>
-            <div class="absolute inset-0 z-0 bg-black/60"></div>
-            
-            <div class="relative z-10 text-center px-4 max-w-2xl mx-auto flex flex-col items-center">
-                <!-- Classified Icon -->
-                <svg class="w-16 h-16 md:w-24 md:h-24 text-gray-500 mb-8 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                
-                <h2 class="text-4xl md:text-6xl font-montserrat-black tracking-widest uppercase mb-4 text-transparent bg-clip-text bg-gradient-to-r from-gray-300 to-gray-600 drop-shadow-lg">Coming Soon</h2>
-                
-                <p class="text-gray-400 font-montserrat text-lg md:text-xl tracking-wide max-w-md mx-auto mb-8 border-t border-b border-white/10 py-4">
-                    The roster is currently highly classified. Check back closer to launch to meet the fighters.
-                </p>
-                
-                <!-- Discord reminder -->
-                <a href="https://discord.gg/F7tv9nG6Ux" target="_blank" class="text-[#d32f2f] hover:text-[#b71c1c] font-bold tracking-widest uppercase text-sm transition-colors flex items-center gap-2 group cursor-pointer">
-                    <span>Join Discord for sneak peeks</span>
-                    <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                </a>
-            </div>
-        </div>
-
-        <!-- PAGE VIEW: CHARACTER TEMPLATE SUBPAGE (Keeping this hidden in code just in case you need it later) -->
-        <div id="view-character-template" class="page-view hidden w-full min-h-screen bg-[#111111] text-white pt-32 pb-24 px-6 md:px-12 relative z-10">
-            <div class="max-w-5xl mx-auto">
-                
-                <!-- Back Button -->
-                <button onclick="switchView('characters')" class="group flex items-center gap-2 text-gray-400 hover:text-white font-bold uppercase tracking-wider text-sm mb-12 transition-colors">
-                    <svg class="w-5 h-5 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                    Back to Roster
-                </button>
-
-                <div class="flex flex-col md:flex-row gap-12 items-start">
-                    <!-- Character Display Image (Placeholder) -->
-                    <div class="w-full md:w-1/2 flex justify-center">
-                        <img src="https://placehold.co/400x600/181818/FFF?text=Character+Art" alt="Character Full Art" class="w-full max-w-sm rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10 object-cover">
+        <!-- PAGE VIEW: PRIVACY & COPYRIGHT (Corporate Legal Subpage) -->
+        <div id="view-privacy" class="page-view hidden w-full min-h-screen bg-[#0a0a0a] text-gray-300 pt-32 pb-24 px-6 md:px-12 relative z-10">
+            <div class="max-w-4xl mx-auto">
+                <div class="border-b border-white/10 pb-8 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4">
+                    <div>
+                        <span class="text-xs font-montserrat-black tracking-widest text-[#d32f2f] uppercase block mb-2">Legal Documentation & Compliance</span>
+                        <h1 class="text-4xl md:text-5xl font-montserrat-black text-white tracking-wider uppercase">Privacy & Copyright</h1>
                     </div>
-
-                    <!-- Character Details -->
-                    <div class="w-full md:w-1/2">
-                        <h2 class="text-5xl md:text-7xl font-montserrat-black uppercase tracking-wide mb-2 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Character Name</h2>
-                        <h4 class="text-xl md:text-2xl text-[#d32f2f] font-bold tracking-widest uppercase mb-8">Class / Role</h4>
-
-                        <p class="text-gray-300 text-lg leading-relaxed font-montserrat mb-8">
-                            Character biography, lore, and motivations. 
-                        </p>
-
-                        <div class="bg-white/5 border border-white/10 rounded-xl p-6">
-                            <h5 class="font-montserrat-black uppercase tracking-widest text-sm text-gray-400 mb-4 border-b border-white/10 pb-2">Signature Moves</h5>
-                            <ul class="space-y-4">
-                                <li>
-                                    <span class="font-bold text-white block">Dash Attack</span>
-                                    <span class="text-sm text-gray-400">Quickly closes the gap between opponents, dealing knockback.</span>
-                                </li>
-                                <li>
-                                    <span class="font-bold text-white block">Ultimate Strike</span>
-                                    <span class="text-sm text-gray-400">A devastating area-of-effect attack that clears the board.</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    <span class="text-xs font-montserrat text-gray-500 tracking-wider">EFFECTIVE DATE: SEPTEMBER 2026</span>
                 </div>
 
+                <div class="space-y-16 font-montserrat text-sm md:text-base leading-relaxed">
+                    
+                    <!-- CHAPTER A: Intellectual Property & Asset Protection -->
+                    <section class="space-y-6">
+                        <div class="border-l-2 border-[#d32f2f] pl-4">
+                            <h2 class="text-xl md:text-2xl font-montserrat-black text-white uppercase tracking-wider">Chapter A: Intellectual Property & Asset Protection</h2>
+                        </div>
+                        
+                        <div class="space-y-4 text-gray-400">
+                            <div class="bg-[#141414] border border-white/5 p-6 rounded-sm shadow-inner space-y-4">
+                                <h3 class="text-sm font-montserrat-black text-white uppercase tracking-widest">A1 - Proprietary Rights & Ownership</h3>
+                                <p>
+                                    All original assets, visual elements, intellectual properties, character designs, 3D models, conceptual art, musical compositions, audio recordings, source code, game mechanics, and marketing collateral utilized within <strong class="text-white">Rumble Party</strong> and associated properties are exclusively owned by <strong class="text-white">TOROMO GROUP</strong>. These works are protected under international copyright conventions, trademark laws, and intellectual property treaties.
+                                </p>
+                            </div>
+
+                            <div class="bg-[#141414] border border-white/5 p-6 rounded-sm shadow-inner space-y-4">
+                                <h3 class="text-sm font-montserrat-black text-white uppercase tracking-widest">A2 - Strict Prohibition of Unlicensed Usage</h3>
+                                <p>
+                                    Any unauthorized reproduction, distribution, public display, derivative creation, decompilation, or commercial exploitation of TOROMO GROUP assets without explicit prior written authorization constitutes a direct violation of civil and criminal law. 
+                                </p>
+                                <p class="text-red-400 font-bold border-l-2 border-red-500/50 pl-3">
+                                    Notice: Infringement will result in immediate execution of Digital Millennium Copyright Act (DMCA) takedown notices, platform bans, and aggressive pursuit of statutory damages through legal representation.
+                                </p>
+                            </div>
+
+                            <div class="bg-[#141414] border border-white/5 p-6 rounded-sm shadow-inner space-y-4">
+                                <h3 class="text-sm font-montserrat-black text-white uppercase tracking-widest">A3 - Permitted Fan Media & Exceptions</h3>
+                                <p>
+                                    Non-commercial, transformative fan art, commentary, and standard video streaming of gameplay are generally permitted under fair use guidelines, provided such usage does not misrepresent official affiliation, misappropriate trademarked logos, or monetize proprietary audio tracks independently of the game environment.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- CHAPTER B: Data Collection & Telemetry -->
+                    <section class="space-y-6">
+                        <div class="border-l-2 border-[#d32f2f] pl-4">
+                            <h2 class="text-xl md:text-2xl font-montserrat-black text-white uppercase tracking-wider">Chapter B: Data Collection, Telemetry & Analytics</h2>
+                        </div>
+                        
+                        <div class="space-y-4 text-gray-400">
+                            <div class="bg-[#141414] border border-white/5 p-6 rounded-sm shadow-inner space-y-4">
+                                <h3 class="text-sm font-montserrat-black text-white uppercase tracking-widest">B1 - Information Architecture & Scope</h3>
+                                <p>
+                                    TOROMO GROUP ("we," "our," or "us") operates rumble.party and associated digital services. We adhere to stringent data minimization principles. We collect only structural telemetry and necessary metadata required to ensure network security, optimal server routing, and website rendering compatibility across diverse user configurations.
+                                </p>
+                            </div>
+
+                            <div class="bg-[#141414] border border-white/5 p-6 rounded-sm shadow-inner space-y-4">
+                                <h3 class="text-sm font-montserrat-black text-white uppercase tracking-widest">B2 - Automatically Harvested Technical Telemetry</h3>
+                                <p>
+                                    Upon accessing our web infrastructure, automated logging protocols capture standard non-personally identifiable diagnostic parameters, including but not limited to: IP address routing, browser agent string, operating system architecture, resolution metrics, referral URLs, and session timestamp data.
+                                </p>
+                            </div>
+
+                            <div class="bg-[#141414] border border-white/5 p-6 rounded-sm shadow-inner space-y-4">
+                                <h3 class="text-sm font-montserrat-black text-white uppercase tracking-widest">B3 - Purpose of Processing</h3>
+                                <p>
+                                    Collected telemetry is utilized strictly for system diagnostics, load balancing, mitigating Distributed Denial of Service (DDoS) vectors, and analyzing aggregate user traffic patterns to improve web layout responsiveness and multimedia delivery speeds.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- CHAPTER C: Third-Party Infrastructure & Commerce -->
+                    <section class="space-y-6">
+                        <div class="border-l-2 border-[#d32f2f] pl-4">
+                            <h2 class="text-xl md:text-2xl font-montserrat-black text-white uppercase tracking-wider">Chapter C: Third-Party Infrastructure & E-Commerce</h2>
+                        </div>
+                        
+                        <div class="space-y-4 text-gray-400">
+                            <div class="bg-[#141414] border border-white/5 p-6 rounded-sm shadow-inner space-y-4">
+                                <h3 class="text-sm font-montserrat-black text-white uppercase tracking-widest">C1 - Financial Transactions via Shopify & Fulfillment Partners</h3>
+                                <p>
+                                    Merchandise acquisition and financial checkouts hosted on rumble.party are processed securely through Shopify's integrated merchant architecture and third-party fulfillment partners. TOROMO GROUP never stores, logs, or processes raw credit card numbers, banking credentials, or sensitive billing details on internal company servers.
+                                </p>
+                            </div>
+
+                            <div class="bg-[#141414] border border-white/5 p-6 rounded-sm shadow-inner space-y-4">
+                                <h3 class="text-sm font-montserrat-black text-white uppercase tracking-widest">C2 - External Platform Links & APIs</h3>
+                                <p>
+                                    Our ecosystem includes hyperlinks redirecting users to external third-party networks, including Roblox Corporation, YouTube, and X (Twitter). TOROMO GROUP assumes zero liability for the privacy practices, content moderation, or security protocols enforced by these independent corporate entities. Users are advised to review external terms independently.
+                                </p>
+                            </div>
+
+                            <div class="bg-[#141414] border border-white/5 p-6 rounded-sm shadow-inner space-y-4">
+                                <h3 class="text-sm font-montserrat-black text-white uppercase tracking-widest">C3 - Cookie Persistence & Local Storage Protocols</h3>
+                                <p>
+                                    Our web applications may deploy standard session cookies, local storage tokens, and diagnostic caching markers to preserve user preferences (such as audio settings and layout themes). Users retain full authority to purge or disable cookies via individual browser configurations, though certain auxiliary UI features may experience transient degradation.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- CHAPTER D: User Privacy Rights & Compliance -->
+                    <section class="space-y-6">
+                        <div class="border-l-2 border-[#d32f2f] pl-4">
+                            <h2 class="text-xl md:text-2xl font-montserrat-black text-white uppercase tracking-wider">Chapter D: User Privacy Rights & Regulatory Compliance</h2>
+                        </div>
+                        
+                        <div class="space-y-4 text-gray-400">
+                            <div class="bg-[#141414] border border-white/5 p-6 rounded-sm shadow-inner space-y-4">
+                                <h3 class="text-sm font-montserrat-black text-white uppercase tracking-widest">D1 - Global Privacy Framework Alignment</h3>
+                                <p>
+                                    We align our data governance structures to respect baseline regional mandates, including the General Data Protection Regulation (GDPR) and the California Consumer Privacy Act (CCPA). Users retain the right to inquire about structural data retention policies or request telemetry log purges via our official support channels.
+                                </p>
+                            </div>
+
+                            <div class="bg-[#141414] border border-white/5 p-6 rounded-sm shadow-inner space-y-4">
+                                <h3 class="text-sm font-montserrat-black text-white uppercase tracking-widest">D2 - Minor Safety & Age Constraints</h3>
+                                <p>
+                                    Rumble Party and its web interfaces are intended for general audiences under parental supervision where applicable. We do not knowingly compile personally identifiable records from individuals under the age of thirteen (13) without verifiable parental consent.
+                                </p>
+                            </div>
+
+                            <div class="bg-[#141414] border border-white/5 p-6 rounded-sm shadow-inner space-y-4">
+                                <h3 class="text-sm font-montserrat-black text-white uppercase tracking-widest">D3 - Data Retention & Secure Deletion Timelines</h3>
+                                <p>
+                                    Diagnostic telemetry and server access logs are automatically pruned on a rotating 30-day cycle unless retention is legally mandated for fraud investigation, security audit trails, or active legal proceedings initiated by TOROMO GROUP legal representatives.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- CHAPTER E: Legal Modifications & Jurisdiction -->
+                    <section class="space-y-6">
+                        <div class="border-l-2 border-[#d32f2f] pl-4">
+                            <h2 class="text-xl md:text-2xl font-montserrat-black text-white uppercase tracking-wider">Chapter E: Amendments, Liability & Jurisdiction</h2>
+                        </div>
+                        
+                        <div class="space-y-4 text-gray-400">
+                            <div class="bg-[#141414] border border-white/5 p-6 rounded-sm shadow-inner space-y-4">
+                                <h3 class="text-sm font-montserrat-black text-white uppercase tracking-widest">E1 - Modifications to Legal Terms</h3>
+                                <p>
+                                    TOROMO GROUP reserves the absolute right to amend, revise, or update this Privacy & Copyright agreement at any time without direct individual notification. Continued utilization of rumble.party subsequent to modifications signifies binding acceptance of the updated legal framework.
+                                </p>
+                            </div>
+
+                            <div class="bg-[#141414] border border-white/5 p-6 rounded-sm shadow-inner space-y-4">
+                                <h3 class="text-sm font-montserrat-black text-white uppercase tracking-widest">E2 - Limitation of Liability</h3>
+                                <p>
+                                    All digital assets, pre-registration portals, and web services are provided on an "as-is" and "as-available" basis without warranties of any kind, express or implied. TOROMO GROUP shall not be held liable for direct, indirect, incidental, or consequential damages arising out of system downtime, data corruption, or unauthorized asset utilization.
+                                </p>
+                            </div>
+
+                            <div class="bg-[#141414] border border-white/5 p-6 rounded-sm shadow-inner space-y-4">
+                                <h3 class="text-sm font-montserrat-black text-white uppercase tracking-widest">E3 - Governing Law & Dispute Resolution</h3>
+                                <p>
+                                    Any legal disputes, copyright infractions, or contractual claims arising from or relating to the utilization of rumble.party shall be governed by and construed in accordance with applicable corporate jurisdiction laws, excluding conflict of law principles. All proceedings shall be conducted exclusively within designated legal venues.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+
+                <!-- Footer Back Action -->
+                <div class="mt-16 pt-8 border-t border-white/10 flex justify-between items-center">
+                    <button onclick="switchView('home')" class="bg-white/10 hover:bg-white/20 text-white text-xs font-montserrat-black tracking-widest uppercase py-3 px-6 rounded-sm transition">
+                        Return to Home
+                    </button>
+                    <span class="text-xs text-gray-500 font-montserrat">TOROMO GROUP LEGAL DIVISION</span>
+                </div>
             </div>
         </div>
     </div>
@@ -369,9 +489,7 @@
     </audio>
 
     <button id="mute-btn" class="fixed bottom-4 right-4 z-[200] bg-black/60 backdrop-blur-md border border-white/20 p-2 rounded-full text-white hover:bg-white/20 transition-all duration-300 hover:scale-110 shadow-lg cursor-pointer">
-        <!-- Unmuted Icon (Visible when playing) -->
         <svg id="icon-unmuted" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5 10v4a2 2 0 002 2h2.586l3.707 3.707a1 1 0 001.707-.707V4.996a1 1 0 00-1.707-.707L9.586 8H7a2 2 0 00-2 2z"></path></svg>
-        <!-- Muted Icon (Default state) -->
         <svg id="icon-muted" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"></path></svg>
     </button>
 
@@ -383,18 +501,17 @@
         uiClickSound.volume = 1.0;
 
         document.addEventListener("DOMContentLoaded", () => {
-            // Attach UI sounds to all interactive elements
             const interactables = document.querySelectorAll('a, button, .cursor-pointer, .nav-link');
             interactables.forEach(el => {
                 el.addEventListener('mouseenter', () => {
                     const sound = uiHoverSound.cloneNode();
                     sound.volume = 0.5;
-                    sound.play().catch(e => { /* Ignore if browser blocks initial audio */ }); 
+                    sound.play().catch(e => { }); 
                 });
                 el.addEventListener('click', () => {
                     const sound = uiClickSound.cloneNode();
                     sound.volume = 1.0;
-                    sound.play().catch(e => { /* Ignore if browser blocks initial audio */ });
+                    sound.play().catch(e => { });
                 });
             });
 
@@ -422,77 +539,87 @@
 
                 if (currentStep >= totalSteps) {
                     clearInterval(interval);
-                    
                     loadingScreen.classList.add('drop-out');
-                    
-                    // Show main content so it is visible immediately underneath the falling cardboard
                     mainContent.classList.add('fade-in');
                     
-                    // Wait for the full bounce animation to finish (1.5s) before removing from display
                     setTimeout(() => {
                         loadingScreen.style.display = 'none';
                         body.classList.remove('loading');
                     }, 1500); 
                 }
             }, updateInterval);
+
+            // Handle URL hash routing for privacy page directly if shared
+            if (window.location.hash === '#privacy') {
+                setTimeout(() => switchView('privacy'), 500);
+            }
         });
 
-        // REWRITTEN AUDIO LOGIC
         const bgMusic = document.getElementById('bg-music');
         const muteBtn = document.getElementById('mute-btn');
         const iconUnmuted = document.getElementById('icon-unmuted');
         const iconMuted = document.getElementById('icon-muted');
         
         bgMusic.volume = 0.5;
-        let isUserMuted = false;
+        let isPlaying = false;
+        let userMuted = false;
 
-        // Helper to swap icons based on state
         function updateIcons() {
-            if (isUserMuted) {
-                iconUnmuted.classList.add('hidden');
-                iconMuted.classList.remove('hidden');
-            } else {
+            if (isPlaying && !userMuted) {
                 iconUnmuted.classList.remove('hidden');
                 iconMuted.classList.add('hidden');
+            } else {
+                iconUnmuted.classList.add('hidden');
+                iconMuted.classList.remove('hidden');
             }
         }
 
-        // Function to attempt playing audio
-        function startAudio() {
-            if (isUserMuted) return; // NEVER override user's choice to mute
-            
+        function attemptAutoPlay() {
+            if (userMuted || isPlaying) return;
             let playPromise = bgMusic.play();
             if (playPromise !== undefined) {
                 playPromise.then(() => {
+                    isPlaying = true;
+                    bgMusic.muted = false;
                     updateIcons();
                 }).catch(err => {
-                    // Browser requires interaction first, fails silently until next click
+                    console.log("Waiting for user interaction to autoplay.");
                 });
             }
         }
 
-        // Attempt autoplay instantly
-        startAudio();
+        attemptAutoPlay();
 
-        // Listen for ANY click or keypress to start music (if browser blocked autoplay)
-        document.addEventListener('click', startAudio);
-        document.addEventListener('keydown', startAudio);
-
-        // Mute button directly controls Play/Pause state permanently
-        muteBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); // Prevents the document click from firing at the exact same time
-            
-            isUserMuted = !isUserMuted; // Toggle user preference
-            
-            if (isUserMuted) {
-                bgMusic.pause();
-            } else {
-                bgMusic.play().catch(err => console.log(err));
+        function handleUserInteraction() {
+            if (!userMuted && !isPlaying) {
+                attemptAutoPlay();
             }
-            updateIcons();
+        }
+
+        document.addEventListener('click', handleUserInteraction);
+        document.addEventListener('keydown', handleUserInteraction);
+
+        muteBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); 
+            
+            if (isPlaying) {
+                bgMusic.pause();
+                isPlaying = false;
+                userMuted = true;
+                updateIcons();
+            } else {
+                userMuted = false;
+                let playPromise = bgMusic.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        isPlaying = true;
+                        bgMusic.muted = false;
+                        updateIcons();
+                    }).catch(err => console.log(err));
+                }
+            }
         });
 
-        // View Switching Logic
         window.switchView = function(viewId) {
             document.querySelectorAll('.page-view').forEach(el => {
                 el.classList.remove('block');
@@ -514,6 +641,13 @@
             if (activeLink) {
                 activeLink.classList.remove('text-gray-300', 'border-transparent');
                 activeLink.classList.add('text-white', 'border-white');
+            }
+
+            // Update browser hash so rumble.party/#privacy works cleanly
+            if (viewId === 'privacy') {
+                history.pushState(null, null, '#privacy');
+            } else {
+                history.pushState(null, null, window.location.pathname);
             }
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
